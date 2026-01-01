@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #fafafa;
+  color: #0a0a0a;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0a0a0a;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f5f5f0 25%, #e5e5e0 50%, #f5f5f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Product card hover effect */
+.product-card {
+  @apply transition-all duration-300 ease-out;
+}
+
+.product-card:hover {
+  @apply -translate-y-2 shadow-xl;
+}
+
+.product-card:hover .product-image {
+  @apply scale-105;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-aura-black text-aura-white px-6 py-3 font-medium 
+         transition-all duration-200 hover:bg-aura-charcoal 
+         active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply border-2 border-aura-black text-aura-black px-6 py-3 font-medium 
+         transition-all duration-200 hover:bg-aura-black hover:text-aura-white 
+         active:scale-95;
+}
+
+.btn-gold {
+  @apply bg-aura-gold text-aura-black px-6 py-3 font-medium 
+         transition-all duration-200 hover:bg-opacity-90 
+         active:scale-95;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-3 border border-aura-silver/50 
+         focus:outline-none focus:border-aura-black 
+         transition-colors duration-200 bg-aura-white;
+}
+
+/* Link underline animation */
+.link-underline {
+  @apply relative;
+}
+
+.link-underline::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-px bg-aura-black 
+         transition-all duration-300;
+}
+
+.link-underline:hover::after {
+  @apply w-full;
+}
+
