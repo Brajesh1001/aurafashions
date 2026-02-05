@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ShoppingBag, Heart } from 'lucide-react'
 import { productAPI } from '../services/api'
 import { useCart } from '../hooks/useCart'
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../hooks/useAuth.jsx'
 import ColorSelector from '../components/ColorSelector'
 import SizeSelector from '../components/SizeSelector'
 

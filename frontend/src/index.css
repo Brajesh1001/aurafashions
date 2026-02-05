@@ -15,7 +15,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
 }
 
@@ -42,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -68,28 +74,30 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button styles */
 .btn-primary {
-  @apply bg-aura-black text-aura-white px-6 py-3 font-medium 
-         transition-all duration-200 hover:bg-aura-charcoal 
-         active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply bg-aura-black text-aura-white px-6 py-3 font-medium transition-all duration-200 hover:bg-aura-charcoal active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .btn-secondary {
-  @apply border-2 border-aura-black text-aura-black px-6 py-3 font-medium 
-         transition-all duration-200 hover:bg-aura-black hover:text-aura-white 
-         active:scale-95;
+  border-width: 2px;
+  border-color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  @apply active:scale-95;
 }
 
 .btn-gold {
-  @apply bg-aura-gold text-aura-black px-6 py-3 font-medium 
-         transition-all duration-200 hover:bg-opacity-90 
-         active:scale-95;
+  @apply bg-aura-gold text-aura-black px-6 py-3 font-medium transition-all duration-200 hover:bg-opacity-90 active:scale-95;
+}
+
+.btn-white {
+  @apply bg-aura-white text-aura-black px-6 py-3 font-medium transition-all duration-200 hover:bg-aura-silver active:scale-95;
 }
 
 /* Input styles */
 .input-field {
-  @apply w-full px-4 py-3 border border-aura-silver/50 
-         focus:outline-none focus:border-aura-black 
-         transition-colors duration-200 bg-aura-white;
+  @apply w-full px-4 py-3 border border-aura-silver/50 focus:outline-none focus:border-aura-black transition-colors duration-200 bg-aura-white;
 }
 
 /* Link underline animation */
@@ -99,11 +107,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .link-underline::after {
   content: '';
-  @apply absolute left-0 bottom-0 w-0 h-px bg-aura-black 
-         transition-all duration-300;
+  @apply absolute left-0 bottom-0 w-0 h-px bg-aura-black transition-all duration-300;
 }
 
 .link-underline:hover::after {
   @apply w-full;
 }
-

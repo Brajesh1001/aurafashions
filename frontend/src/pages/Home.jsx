@@ -22,7 +22,7 @@ export default function Home() {
         if (category) params.category = category
         if (color) params.color = color
         if (size) params.size = size
-        
+
         const response = await productAPI.getAll(params)
         setProducts(response.data)
       } catch (error) {
@@ -65,19 +65,19 @@ export default function Home() {
               <span className="text-aura-gold">Maximum Impact</span>
             </h1>
             <p className="text-lg text-aura-silver mb-8 animate-slide-up">
-              Premium T-shirts and hoodies in classic black & white. 
+              Premium T-shirts and hoodies in classic black & white.
               Because true style doesn't need complications.
             </p>
             <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <button 
+              <button
                 onClick={() => updateFilter('category', 't-shirt')}
                 className="btn-gold"
               >
                 Shop T-Shirts
               </button>
-              <button 
+              <button
                 onClick={() => updateFilter('category', 'hoodie')}
-                className="btn-secondary border-aura-white text-aura-white hover:bg-aura-white hover:text-aura-black"
+                className="btn-secondary"
               >
                 Shop Hoodies
               </button>
@@ -227,8 +227,8 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map((product, index) => (
-                <div 
-                  key={product.id} 
+                <div
+                  key={product.id}
                   className="animate-fade-in"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >

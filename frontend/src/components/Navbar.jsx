@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ShoppingBag, User, Menu, X, LogOut, Package, Shield, Code } from 'lucide-react'
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../hooks/useAuth.jsx'
 import { useCart } from '../hooks/useCart'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
-  const { user, login, logout, isAdmin, isAuthenticated, devMode } = useAuth()
+  const { user, login, logout, isAdmin, isAuthenticated } = useAuth()
   const { itemCount } = useCart()
   const navigate = useNavigate()
 
@@ -21,13 +21,6 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-aura-white border-b border-aura-cream">
-      {/* Dev Mode Banner */}
-      {devMode && (
-        <div className="bg-amber-500 text-amber-900 text-center py-1 text-xs font-medium flex items-center justify-center gap-1">
-          <Code className="w-3 h-3" />
-          DEV MODE - Login works without Google OAuth
-        </div>
-      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
