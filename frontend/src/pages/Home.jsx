@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Filter, X } from 'lucide-react'
+import { Filter, X, Award, RotateCcw, Truck } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
 import { productAPI } from '../services/api'
 
@@ -241,26 +241,26 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 lg:py-16 bg-aura-cream">
+      <section className="py-12 lg:py-16 bg-aura-white border-t border-aura-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-aura-black text-aura-gold rounded-full flex items-center justify-center">
-                <span className="font-display text-xl">✦</span>
+              <div className="w-12 h-12 mx-auto mb-4 bg-aura-black text-aura-gold rounded-full flex items-center justify-center transform hover:scale-110 transition-transform">
+                <Award className="w-6 h-6" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2">Premium Quality</h3>
               <p className="text-aura-silver">100% cotton, ethically sourced and carefully crafted</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-aura-black text-aura-gold rounded-full flex items-center justify-center">
-                <span className="font-display text-xl">↻</span>
+              <div className="w-12 h-12 mx-auto mb-4 bg-aura-black text-aura-gold rounded-full flex items-center justify-center transform hover:scale-110 transition-transform">
+                <RotateCcw className="w-6 h-6" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2">Easy Returns</h3>
               <p className="text-aura-silver">30-day return policy, no questions asked</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-aura-black text-aura-gold rounded-full flex items-center justify-center">
-                <span className="font-display text-xl">✈</span>
+              <div className="w-12 h-12 mx-auto mb-4 bg-aura-black text-aura-gold rounded-full flex items-center justify-center transform hover:scale-110 transition-transform">
+                <Truck className="w-6 h-6" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2">Fast Shipping</h3>
               <p className="text-aura-silver">Free shipping on orders over ₹999</p>

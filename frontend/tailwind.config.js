@@ -17,7 +17,7 @@ export default {
           gray: '#2a2a2a',
           silver: '#c0c0c0',
           cream: '#f5f5f0',
-          white: '#fafafa',
+          white: '#ffffff',
           gold: '#c9a962',
         }
       },
