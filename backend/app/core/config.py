@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     FRONTEND_URL: str = "http://localhost:5173"
     
     # Development Mode - Set to True to bypass Google OAuth
-    DEV_MODE: bool = True
+    DEV_MODE: bool = False
     
     class Config:
         env_file = ".env"
