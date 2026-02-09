@@ -19,7 +19,9 @@ app.add_middleware(
     allow_origins=[
         settings.FRONTEND_URL,
         "http://localhost:5173",
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "https://aurafashions-844d1.web.app",
+        "https://aurafashions-844d1.firebaseapp.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
