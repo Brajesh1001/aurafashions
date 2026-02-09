@@ -13,7 +13,11 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 
 function App() {
   const location = useLocation()
-  const isLandingPage = location.pathname === '/' || location.pathname === '/launch'
+  const isComingSoonActive = import.meta.env.VITE_COMING_SOON === 'true'
+
+  // Decide if we should show the "clean" landing page layout (no navbar/footer)
+  // This happens if ComingSoon is the root page OR if we're explicitly on /launch
+  const isLandingPage = (location.pathname === '/' && isComingSoonActive) || location.pathname === '/launch'
 
   return (
     <div className="min-h-screen flex flex-col bg-aura-white">
@@ -21,7 +25,7 @@ function App() {
       <main className="flex-1">
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<ComingSoon />} />
+          <Route path="/" element={isComingSoonActive ? <ComingSoon /> : <Home />} />
           <Route path="/store" element={<Home />} />
           <Route path="/launch" element={<ComingSoon />} />
           <Route path="/product/:id" element={<ProductDetail />} />
