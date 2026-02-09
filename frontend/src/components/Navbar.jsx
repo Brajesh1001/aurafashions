@@ -23,8 +23,10 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-aura-white border-b border-aura-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-4 group">
+            <div className="w-12 h-12 bg-white border-2 border-aura-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-sm">
+              <img src="/aura.png" alt="Aura Logo" className="w-8 h-8 object-contain" />
+            </div>
             <span className="font-display text-2xl lg:text-3xl font-semibold text-aura-black tracking-tight">
               Aura<span className="text-aura-gold">Fashions</span>
             </span>
