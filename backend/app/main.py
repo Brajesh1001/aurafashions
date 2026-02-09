@@ -21,7 +21,9 @@ app.add_middleware(
         "http://localhost:5173",
         "http://localhost:3000",
         "https://aurafashions-844d1.web.app",
-        "https://aurafashions-844d1.firebaseapp.com"
+        "https://aurafashions-844d1.firebaseapp.com",
+        "https://aurafashions.in",
+        "https://www.aurafashions.in"
     ],
     allow_credentials=True,
     allow_methods=["*"],
