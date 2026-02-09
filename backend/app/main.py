@@ -8,21 +8,15 @@ from app.routes import auth, products, orders
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="AuraFashions API",
+    title=settings.PROJECT_NAME,
     description="E-Kart E-commerce API for AuraFashions - T-Shirts & Hoodies",
-    version="1.0.0"
+    version=settings.VERSION
 )
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        settings.FRONTEND_URL,
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "https://aurafashions-844d1.web.app",
-        "https://aurafashions-844d1.firebaseapp.com"
-    ],
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
