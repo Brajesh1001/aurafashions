@@ -18,7 +18,7 @@ export default function Home() {
     const fetchProducts = async () => {
       try {
         setLoading(true)
-        const params = {}
+        const params = { grouped: true }
         if (category) params.category = category
         if (color) params.color = color
         if (size) params.size = size

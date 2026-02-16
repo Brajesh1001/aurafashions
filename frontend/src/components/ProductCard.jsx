@@ -34,12 +34,20 @@ export default function ProductCard({ product }) {
               ₹{product.price.toLocaleString()}
             </span>
           </div>
-          
+
           {/* Size Badge */}
-          <div className="mt-2">
-            <span className="inline-block px-2 py-1 text-xs bg-aura-cream text-aura-charcoal rounded">
-              {product.size}
-            </span>
+          <div className="mt-2 flex flex-wrap gap-1">
+            {product.available_sizes ? (
+              product.available_sizes.map(s => (
+                <span key={s} className="inline-block px-2 py-0.5 text-[10px] bg-aura-cream text-aura-charcoal rounded border border-aura-silver/30">
+                  {s}
+                </span>
+              ))
+            ) : (
+              <span className="inline-block px-2 py-1 text-xs bg-aura-cream text-aura-charcoal rounded">
+                {product.size}
+              </span>
+            )}
           </div>
         </div>
       </div>

@@ -36,6 +36,34 @@ export default function ProductDetail() {
     fetchProduct()
   }, [id])
 
+  const handleVariantChange = async (newSize, newColor) => {
+    if (!product) return
+
+    const size = newSize || selectedSize
+    const color = newColor || selectedColor
+
+    if (size === product.size && color === product.color) return
+
+    try {
+      const response = await productAPI.getVariants(product.id)
+      const variants = response.data
+      const match = variants.find(v =>
+        v.size.toUpperCase() === size.toUpperCase() &&
+        v.color.toLowerCase() === color.toLowerCase()
+      )
+
+      if (match) {
+        navigate(`/product/${match.id}`)
+      } else {
+        // Just update local state if no exact match found (though there usually should be)
+        if (newSize) setSelectedSize(newSize)
+        if (newColor) setSelectedColor(newColor)
+      }
+    } catch (error) {
+      console.error('Error fetching variants:', error)
+    }
+  }
+
   const handleAddToCart = () => {
     if (!isAuthenticated) {
       login()
@@ -142,15 +170,15 @@ export default function ProductDetail() {
             {/* Color Selector */}
             <ColorSelector
               selectedColor={selectedColor}
-              onSelect={setSelectedColor}
-              availableColors={['black', 'white']}
+              onSelect={(color) => handleVariantChange(null, color)}
+              availableColors={product.available_colors || ['black', 'white']}
             />
 
             {/* Size Selector */}
             <SizeSelector
               selectedSize={selectedSize}
-              onSelect={setSelectedSize}
-              availableSizes={['S', 'M', 'L', 'XL']}
+              onSelect={(size) => handleVariantChange(size, null)}
+              availableSizes={product.available_sizes || ['S', 'M', 'L', 'XL']}
             />
 
             {/* Quantity */}

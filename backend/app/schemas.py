@@ -64,6 +64,8 @@ class ProductUpdate(BaseModel):
 class ProductResponse(ProductBase):
     id: int
     created_at: datetime
+    available_sizes: Optional[List[str]] = None
+    available_colors: Optional[List[str]] = None
     
     class Config:
         from_attributes = True
